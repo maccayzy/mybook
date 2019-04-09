@@ -26,11 +26,13 @@
     > * netstat -n | grep 1521 | grep EST | wc -l
 4. **查看端口**
     > 查看所有端口:
-    > * netstat -lnput
+    >> * netstat -lnput
     > 
+	>
     > 查看指定端口 :
-    > * netstat -lnput|grep 8888
+    >> * netstat -lnput|grep 8888
     > 
+    >
     >> a 表示所有 
     >> n 表示不查询dns 
     >> t 表示tcp协议 
@@ -40,16 +42,16 @@
 
 5. **安装防火墙**
     > 检查是否已安装防火墙
-    > * systemctl status iptables
-    > 
+    >> * systemctl status iptables
+    >
     > 安装防火墙:
-    > *　yum install iptable-services
-    > 
+    >> *　yum install iptable-services
+    >
     > 启动防火墙:
-    > *　systemctl start iptables.service
-    > 
-    >　列出防火墙所有规则:
-    >　* iptables -L -n
+    >> *　systemctl start iptables.service
+    >
+    > 列出防火墙所有规则:
+    >> * iptables -L -n
 
 6. **防火墙规则设置**
 
