@@ -28,11 +28,9 @@
     > 查看所有端口:
     >> * netstat -lnput
     > 
-	>
     > 查看指定端口 :
     >> * netstat -lnput|grep 8888
     > 
-    >
     >> a 表示所有 
     >> n 表示不查询dns 
     >> t 表示tcp协议 
@@ -42,35 +40,35 @@
 
 5. **安装防火墙**
     > 检查是否已安装防火墙
-    >> * systemctl status iptables
+    >> systemctl status iptables
     >
     > 安装防火墙:
-    >> *　yum install iptable-services
+    >> yum install iptable-services
     >
     > 启动防火墙:
-    >> *　systemctl start iptables.service
+    >> systemctl start iptables.service
     >
     > 列出防火墙所有规则:
-    >> * iptables -L -n
+    >> iptables -L -n
 
 6. **防火墙规则设置**
-
-    > * vim /etc/sysconfig/iptables
+	>　修改配置文件
+    >> vim /etc/sysconfig/iptables
     >
     > 开放8888端口添加以下内容: 
-    > * -A INPUT -m state --state NEW -p tcp -m tcp --dport 8888 -j ACCEPT
+    >> -A INPUT -m state --state NEW -p tcp -m tcp --dport 8888 -j ACCEPT
     >
     > 禁用8888端口添加以下内容:  
-    > * -A INPUT -m state --state NEW -p tcp -m tcp --dport 8888 -j DROP
+    >> -A INPUT -m state --state NEW -p tcp -m tcp --dport 8888 -j DROP
     >
     > 修改完保存退出:
-    > * service iptables save 保存配置
-    > * systemctl restart iptables.service 重启
+    >> service iptables save 保存配置
+    >> systemctl restart iptables.service 重启
     >
     > ***语法说明：***
     >
-    > 　* -A: 追加到规则的最后一条
-    > 　* -D：删除记录
-    > 　* -I：添加到规则的第一条
-    > 　* -p：（proto）规定通信协议，常见的协议有：tcp、udp、icmp、all
-    > 　* -j：（jump）指定要跳转的目标，常见的目标有：ACCEPT（接收数据包）、DROP（丢弃数据包）、REJECT（重定向）三种，但是一般不适用重定向，会带来安全隐患 
+    >> 　 -A: 追加到规则的最后一条
+    >> 　 -D：删除记录
+    >> 　 -I：添加到规则的第一条
+    >> 　 -p：（proto）规定通信协议，常见的协议有：tcp、udp、icmp、all
+    >> 　 -j：（jump）指定要跳转的目标，常见的目标有：ACCEPT（接收数据包）、DROP（丢弃数据包）、REJECT（重定向）三种，但是一般不适用重定向，会带来安全隐患 
