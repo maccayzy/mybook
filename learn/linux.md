@@ -13,7 +13,31 @@
 >> 1. [实验楼](https://www.shiyanlou.com/) 需要注册，最大的优点是网站提供Linux在线开发环境,可以随便折腾
 >> 2. [JSLinux ](http://bellard.org/jslinux/) 贼牛Ｂ的大神用JS写的Linux模拟器
 
-#### 二. 常用Linux命令
+#### 二. Linux基础
+
+~~~shell
+#上传工具
+yum -y install lrzsz
+#下载
+yum -y install wget
+#时间同步
+yum -y install ntpdate
+yum -y install ntp
+systemctl start ntpd
+systemctl enable ntpd #开机启动
+#openssl
+yum -y install openssl-devel
+#rsync增量copy
+yum -y install rsync
+
+
+#centos7 防火墙
+systemctl stop firewalld
+systemctl disable firewalld
+
+~~~
+
+#### 三. 常用Linux命令
 
 1. **杀僵尸进程 终极绝招**
 
